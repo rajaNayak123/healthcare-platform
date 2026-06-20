@@ -1,0 +1,26 @@
+# Java / Maven
+backend-spring/target/
+*.class
+*.jar
+!backend-spring/.mvn/wrapper/maven-wrapper.jar
+
+# Python
+worker-python/venv/
+worker-python/__pycache__/
+worker-python/**/__pycache__/
+*.pyc
+
+# Node / Next.js
+frontend-nextjs/node_modules/
+frontend-nextjs/.next/
+frontend-nextjs/out/
+frontend-nextjs/.env.local
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.iml
+.env
+# Docker
+docker-compose.override.yml
