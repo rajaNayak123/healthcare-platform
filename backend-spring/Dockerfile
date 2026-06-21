@@ -8,6 +8,7 @@ RUN mvn -B clean package -DskipTests
 FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 RUN addgroup --system spring && adduser --system --ingroup spring spring
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 USER spring:spring
 COPY --from=build /app/target/appointment-service.jar app.jar
 EXPOSE 8080
