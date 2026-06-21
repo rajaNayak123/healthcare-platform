@@ -181,6 +181,7 @@ curl -X POST http://localhost:8080/api/appointments \
   (`uq_active_appointment_per_slot`) on Postgres is a final safety net —
   three independent layers so a slot can never be double-booked even under
   high concurrency.
+- **CORS Configuration in Production:** For demonstration simplicity, CORS is currently configured to allow wildcards (`*`) with credentials. In a production environment, origin restrictions must be explicitly configured to scope access solely to the authenticated frontend domain.
 - **Event-driven decoupling:** Spring Boot never calls the Python worker
   directly. It publishes to Kafka and returns immediately; the worker
   processes asynchronously and writes status back to the shared database,
