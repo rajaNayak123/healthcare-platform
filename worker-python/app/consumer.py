@@ -19,6 +19,7 @@ from app.config import (
     SPRING_BACKEND_URL,
     MAX_RETRY_ATTEMPTS,
     BASE_RETRY_DELAY_S,
+    INTERNAL_TOKEN,
 )
 from app.db import SessionLocal
 from app.notification import send_notification
@@ -57,8 +58,11 @@ def _notify_spring(appointment_id: int, status: str, event_type: str, note: str)
         "note":          note,
         "timestamp":     datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S"),
     }
+    headers = {
+        "X-Internal-Token": INTERNAL_TOKEN
+    }
     try:
-        resp = _http_client.post(url, json=payload)
+        resp = _http_client.post(url, json=payload, headers=headers)
         if resp.status_code not in (200, 204):
             logger.warning(
                 "WS notify returned %s for appointment %s",
@@ -251,7 +255,9 @@ def _run_with_retry(session, event_id: str, event: dict,
                 attempt, MAX_RETRY_ATTEMPTS, appointment_id, exc,
             )
 
-    raise last_exc  
+    if last_exc is not None:
+        raise last_exc
+    raise RuntimeError("Max retry attempts exhausted")
 
 def process_event(message) -> None:
 
