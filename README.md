@@ -429,10 +429,14 @@ psql -U postgres -d healthcare_db -f db/schema.sql
 > Add your demo video link and screenshots here before sharing this README.
 
 - 🖼️ **Screenshots:**
-  - `<add-screenshot-of-login/register-page>`
-  - `<add-screenshot-of-slot-picker-and-booking-dashboard>`
-  - `<add-screenshot-of-live-activity-feed-showing-Processing→Confirmed&Notified>`
-  - `<add-screenshot-of-Swagger-UI>`
+
+<img width="1439" height="784" alt="Screenshot 2026-06-21 at 9 45 32 AM" src="https://github.com/user-attachments/assets/36d08537-3ebf-4b8b-ac36-bd82fc71fc7a" />
+  
+<img width="1439" height="784" alt="Screenshot 2026-06-21 at 9 45 39 AM" src="https://github.com/user-attachments/assets/24f4a6ae-35be-4922-93f3-812f6ac4efe4" />
+
+<img width="1439" height="784" alt="Screenshot 2026-06-21 at 9 47 37 AM" src="https://github.com/user-attachments/assets/41ed12bd-421a-4328-9f92-75b2a3bc532d" />
+
+<img width="1439" height="784" alt="Screenshot 2026-06-21 at 9 49 16 AM" src="https://github.com/user-attachments/assets/dd50ed28-5548-47ef-bd67-9e3545f6cfeb" />
 
 Suggested capture flow for the recording (mirrors [Section 11](#11-demo-walkthrough) below):
 1. Register → land on dashboard.
