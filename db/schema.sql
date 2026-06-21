@@ -29,7 +29,7 @@ CREATE INDEX IF NOT EXISTS idx_slots_available ON slots (slot_date, is_booked);
 CREATE TABLE IF NOT EXISTS appointments (
     id              BIGSERIAL PRIMARY KEY,
     user_id         BIGINT NOT NULL REFERENCES users(id),
-    slot_id         BIGINT NOT NULL UNIQUE REFERENCES slots(id),
+    slot_id         BIGINT NOT NULL REFERENCES slots(id),
     status          VARCHAR(20) NOT NULL DEFAULT 'PENDING'
                         CHECK (status IN ('PENDING', 'BOOKED', 'NOTIFIED', 'CANCELLED', 'COMPLETED')),
     created_at      TIMESTAMP NOT NULL DEFAULT NOW(),
